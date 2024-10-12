@@ -1,0 +1,664 @@
+@font-face {
+    font-family: 'titleFontBold';
+    src: url('../font/Barlow_Condensed/BarlowCondensed-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'titleFontRegular';
+    src: url('../font/Barlow_Condensed/BarlowCondensed-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'bodyFont';
+    src: url('../font/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+:root {
+    --primary: #F3624A;
+    --secondary: #FD911B;
+    --gray: #6c757d;
+    --black: #000;
+    --white: #fff;
+    --bg: #1C1C1C;
+    --bg-light: #f0f2f3;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'bodyFont';
+    transition: all .5s linear;
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'titleFontBold';
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn i {
+    margin-left: 1rem;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    transform: translateY(-10px);
+}
+
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+    font-size: 2.5rem;
+}
+
+.title::before {
+    content: '';
+    width: 50px;
+    height: 5px;
+    background-color: var(--primary);
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -50%;
+}
+
+.info {
+    color: var(--gray);
+    line-height: 1.6rem;
+    text-align: center;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+/* nav */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+nav a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+nav .nav-logo {
+    color: var(--white);
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-family: 'titleFontBold';
+}
+
+nav .nav-logo span {
+    color: var(--primary);
+    font-family: 'titleFontBold';
+}
+
+nav #toggle {
+    background-color: var(--white);
+    border: none;
+    padding: 0.3rem 0.5rem;
+    font-size: 2rem;
+    display: none;
+}
+
+nav .nav-item .nav-item-menu a {
+    color: var(--white);
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+nav .nav-item {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .nav-item .nav-item-menu {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+nav .nav-item .nav-item-menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+nav .nav-item .nav-item-phone {
+    color: var(--primary);
+    font-family: 'titleFontBold';
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+}
+
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown .dropdown-menu {
+    background-color: var(--bg);
+    position: absolute;
+    top: 3.6rem;
+    left: 0;
+    width: 200%;
+    display: none;
+}
+
+nav .dropdown .dropdown-menu li {
+    display: block;
+}
+
+nav .dropdown .dropdown-menu.active {
+    display: block !important;
+}
+
+nav.bg {
+    background-color: var(--bg);
+}
+
+/* home */
+#home {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url('../img/home-bg.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+}
+
+#home .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#home .home-info {
+    text-transform: uppercase;
+    border: 1px solid var(--white);
+    letter-spacing: .3rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+#home .home-title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#home .home-title span {
+    font-family: 'titleFontBold';
+    color: var(--primary);
+}
+
+/* home card */
+.home-card {
+    transform: translateY(-30%);
+}
+
+.home-card .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.home-card .container .box {
+    background-color: var(--white);
+    flex: 0 0 24rem;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.home-card .container .box::after {
+    content: '';
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    transition: all .7s;
+    z-index: -2;
+}
+
+.home-card .container .box:hover::after {
+    bottom: 0;
+}
+
+.home-card .container .box .number {
+    font-size: 5rem;
+    color: var(--gray);
+    opacity: 0.5;
+    position: absolute;
+    z-index: -1;
+}
+
+.home-card .container .box h2 {
+    text-transform: uppercase;
+    margin: 2rem 0rem;
+    font-size: 2rem;
+}
+
+.home-card .container .box p {
+    line-height: 1.7rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.home-card .container .box a {
+    text-decoration: none;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.home-card .container .box:hover h2,
+.home-card .container .box:hover p,
+.home-card .container .box:hover a {
+    color: white;
+}
+
+/* skill */
+.skill .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.skill .container .skill-img,
+.skill .container .skill-content {
+    width: 50%;
+}
+
+.skill .container .skill-img img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+.skill .container .skill-content {
+    padding: 2rem;
+}
+
+.skill .container .skill-content h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.skill .container .skill-content h1 span {
+    font-family: 'titleFontBold';
+    color: var(--primary);
+}
+
+.skill .container .skill-content p {
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* book */
+.book {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://cdn.pixabay.com/photo/2016/11/29/09/10/man-1868632_1280.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.book .container {
+    text-align: center;
+    color: var(--white);
+    padding: 5rem 0;
+}
+
+.book .container p {
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: .2rem;
+}
+
+.book .container h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.book .container h1 span {
+    font-family: 'titleFontBold';
+    color: var(--primary);
+}
+
+/* services */
+#services .services-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+#services .services-content .box {
+    flex: 0 0 20rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#services .services-content .box i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+#services .services-content .box h2 {
+    font-family: 'titleFontRegular';
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-bottom: 1rem;
+}
+
+#services .services-content .box p {
+    color: var(--gray);
+    line-height: 1.6rem;
+}
+
+#services .services-content .box::before {
+    content: '';
+    background: linear-gradient(var(--primary), var(--secondary));
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    transition: all .5s;
+    z-index: -1;
+}
+
+#services .services-content .box:hover::before {
+    bottom: 0;
+}
+
+#services .services-content .box:hover i,
+#services .services-content .box:hover h2,
+#services .services-content .box:hover p {
+    color: var(--white);
+}
+
+
+/* gallery */
+.gallery-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.gallery-content .box {
+    width: 25%;
+    height: 20rem;
+}
+
+.gallery-content .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* customer */
+.customer {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.pixabay.com/photo/2023/07/05/10/56/gym-8108019_1280.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.customer .title {
+    color: var(--white);
+}
+
+.customer .box {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.customer .box i {
+    font-size: 4.5rem;
+    color: var(--primary);
+}
+
+.customer .box h2 {
+    font-family: 'titleFontRegular';
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    margin: 1rem 0;
+}
+
+.customer .box .info {
+    width: 70%;
+    margin: 0 auto;
+    line-height: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.customer .box h3 {
+    text-transform: capitalize;
+    font-family: 'bodyFont';
+    margin-bottom: 1rem;
+}
+
+/* course */
+.course {
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+.course .course-content {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.course .course-content .box {
+    background-color: var(--white);
+    width: 22%;
+}
+
+.course .course-content .box img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.course .course-content .box .content {
+    padding: 1rem;
+}
+
+.course .course-content .box h2 {
+    font-family: 'bodyFont';
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.course .course-content .box p {
+    color: var(--gray);
+}
+
+.course .btn {
+    margin-top: 2rem;
+}
+
+/* footer */
+
+
+
+/* up */
+#up {
+    background-color: var(--bg);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+#up.active {
+    opacity: 1 !important;
+}
+
+/* media query */
+@media (max-width: 1200px) {
+    html {
+        font-size: 90%;
+    }
+
+    .container {
+        max-width: 990px;
+    }
+
+    .home-card {
+        transform: translateY(-10%);
+    }
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 80%;
+    }
+
+    .container {
+        max-width: 770px;
+    }
+
+    nav #toggle {
+        display: block;
+    }
+
+    nav .nav-item {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        background-color: var(--bg);
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 100%;
+    }
+
+    nav .nav-item .nav-item-menu,
+    nav .nav-item .nav-item-phone {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav .nav-item .nav-item-menu li {
+        display: block;
+        margin: .5rem 0;
+    }
+
+    nav .nav-item.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+    }
+
+    nav .dropdown .dropdown-menu {
+        background-color: var(--white);
+        position: static;
+        width: 100%;
+    }
+
+    nav .dropdown .dropdown-menu a {
+        color: var(--black);
+    }
+
+    .home-card {
+        transform: translateY(-5%);
+    }
+
+    .skill .container .skill-img,
+    .skill .container .skill-content {
+        width: 100%;
+    }
+
+    .gallery-content .box {
+        width: 50%;
+    }
+
+    .course .course-content .box {
+        width: 48%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 70%;
+    }
+
+    .container {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 65%;
+    }
+
+    .gallery-content .box {
+        width: 100%;
+    }
+
+    .course .course-content .box {
+        width: 100%;
+    }
+}
